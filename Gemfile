@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '4.0.0'
 gem 'rails', github: 'rails/rails'
-
+gem 'acts_as_votable', '~> 0.6.0' #https://github.com/ryanto/acts_as_votable
 
 gem 'simple_form'
 gem 'newrelic_rpm'
