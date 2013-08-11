@@ -1,6 +1,8 @@
 ShoeShop::Application.routes.draw do
   resources :posts
   resources :users
+  get 'profile' => 'users#profile'
+  
   
   resource :sessions, only: [:new, :create, :destroy]
 

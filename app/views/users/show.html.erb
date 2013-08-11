@@ -1,0 +1,20 @@
+<h1>
+  <%= @user.username %>
+</h1>
+
+<% @user.posts.each do |post| %>
+  <div class="media">
+    <%= link_to post, class: "pull-left" do %>
+      <img class="media-object" src="http://placehold.it/64x64">
+    <% end %>
+    <div class="media-body">
+      
+      <%= link_to post do %>
+        <h4 class="media-heading"><%= "#{post.brand} #{post.title} #{post.price} [#{post.size}]" %></h4>
+      <% end %>
+      
+      <%= link_to post.body, post %>
+    </div>
+  </div>
+<% end %>
+

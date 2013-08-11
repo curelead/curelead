@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :require_profile, only: [:new, :create, :edit, :update]
 
   # GET /posts
   def index
@@ -21,7 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
@@ -46,6 +47,14 @@ class PostsController < ApplicationController
   end
 
   private
+    def require_profile
+      if current_user
+        @user = current_user
+      else
+        redirect_to new_user_path, notice: "must be logged in to post a pair"
+        return
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
