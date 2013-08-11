@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Brand:</strong>
   <%= @post.brand %>
@@ -16,23 +14,13 @@
 </p>
 
 <p>
-  <strong>Price cents:</strong>
-  <%= @post.price_cents %>
+  <strong>Price:</strong>
+  <%= @post.price %>
 </p>
 
 <p>
   <strong>Body:</strong>
   <%= @post.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @post.visible %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
