@@ -28,7 +28,7 @@ describe 'User Auth' do
       fill_in "username", with: valid_user.username
       fill_in "password", with: password + "654"
       click_on "Login"
-      expect( page ).to have_content "Login failed"
+      expect( page ).to have_content "Login Failed"
     end
   end
 end
