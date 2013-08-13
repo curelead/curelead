@@ -1,19 +1,17 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :require_profile, only: [:new, :create, :edit, :update]
+  before_action :require_login, except: [:show, :index]
+  before_action :require_post_ownership, only: [:edit, :update, :destroy]
+
+  def show
+  end
 
   def index
     @posts = Post.order("created_at DESC")
   end
 
-  def show
-  end
-
   def new
     @post = Post.new
-  end
-
-  def edit
   end
 
   def create
@@ -24,6 +22,9 @@ class PostsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def edit
   end
 
   def update
@@ -39,14 +40,20 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def post_params
-      params.require(:post).permit(:brand, :title, :size, :price, :body)
+  # Only allow a trusted parameter "white list" through.
+  def post_params
+    params.require(:post).permit(:brand, :title, :size, :price, :body)
+  end
+
+  def require_post_ownership
+    unless current_user.id == @post.user_id
+      redirect_to new_sessions_path, notice: "You are not authorized"
     end
+  end
 end
