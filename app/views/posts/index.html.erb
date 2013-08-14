@@ -1,5 +1,4 @@
-<h1>Listing posts</h1>
-<%= link_to 'New Post', new_post_path %>
+<h1>New Pairs</h1>
 <div class="container-fluid">
   <% @posts.each_with_index do |post, index| %>
     <hr>
@@ -14,7 +13,7 @@
         <div class="media-body">
           <h4 class="media-heading"><%= link_to "#{post.title}, size: #{post.size} | @ #{post.price}", post %></h4>
           <p>
-            Sold by: <%= link_to "#{post.user.username} (#{rand(240)})", user_path(post.user) %>
+            Sold by: <%= link_to "#{post.user.username} (#{0})", user_path(post.user) %>
           </p>
         </div>
       </div>
