@@ -1,31 +1,23 @@
 <h1>Listing posts</h1>
-
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>Seller</th>
-      <th>Brand</th>
-      <th>Title</th>
-      <th>Size</th>
-      <th>Price</th>
-      <th>Body</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.username %></td>
-        <td><%= post.brand %></td>
-        <td><%= link_to post.title, post %></td>
-        <td><%= post.size %></td>
-        <td><%= post.price %></td>
-        <td><%= post.body %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Post', new_post_path %>
+<div class="container-fluid">
+  <% @posts.each_with_index do |post, index| %>
+    <hr>
+    <div class="row-fluid">
+      <div class="media">
+        <%= content_tag :div, class: "pull-left" do  %>
+          <h1>[<%= index + 1 %>]</h1>
+        <% end %>
+        <%= link_to post, class: "pull-left" do %>
+          <%= image_tag "http://placehold.it/50x50", class: 'media-object img-rounded' %>
+        <% end %>
+        <div class="media-body">
+          <h4 class="media-heading"><%= link_to "#{post.title}, size: #{post.size} | @ #{post.price}", post %></h4>
+          <p>
+            Sold by: <%= link_to "#{post.user.username} (#{rand(240)})", user_path(post.user) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -5,6 +5,6 @@ class Image < ActiveRecord::Base
   validates_presence_of :url
 
   def url_size(number = 500)
-    url + "/convert?w=#{number}&h=#{number}&fit=max"
+    url + "/convert?rotate=0&w=#{number}&h=#{number}&fit=max"
   end
 end
