@@ -1,15 +1,4 @@
-<% if @images.count < 3 %>
-  <div class="row">
-    <div class="alert alert-danger span6">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h2>Current Image Count: <%= @images.count %>
-      </h2>
-      <h3>
-        Must have at least 3 images for this listing. <%= link_to "Add Photo", new_post_image_path(@post), id: "submit_photo", class: "btn-large btn btn-block btn-inverse" %>
-      </h3>
-    </div>
-  </div>
-<% end %>
+<%= render 'filepicker' %>
 <div class="row-fluid">
   <div class="span3">
   <p>
@@ -41,7 +30,6 @@
     <%# render partial: 'images', object: @post.images %>
   </div>
 </div>
-<%= render 'filepicker' %>
 
 <ul class="thumbnails">
   <%= render partial: 'image', collection: @post.images, locals: {p_id: @post.user_id} %>
