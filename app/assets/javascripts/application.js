@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  filepicker.setKey('AoaxmLrr2Tj2EbZv0JS0Mz');
+});

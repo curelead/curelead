@@ -1,5 +1,8 @@
 ShoeShop::Application.routes.draw do
-  resources :posts
+
+  resources :posts do 
+    resources :images, shallow: true
+  end
   resources :users
   get 'profile' => 'users#profile'
   

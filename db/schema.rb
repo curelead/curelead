@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811212806) do
+ActiveRecord::Schema.define(version: 20130813031817) do
+
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  add_index "images", ["post_id"], name: "index_images_on_post_id"
 
   create_table "posts", force: true do |t|
     t.string   "brand"

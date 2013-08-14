@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
       return
     end
   end
+
+  def require_post_ownership
+    unless current_user && current_user.id == @post.user_id
+      redirect_to new_sessions_path, notice: "You are not authorized"
+    end
+  end
 end

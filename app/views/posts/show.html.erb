@@ -1,27 +1,50 @@
-<p>
-  <strong>Brand:</strong>
-  <%= @post.brand %>
-</p>
+<% if @images.count < 3 %>
+  <div class="row">
+    <div class="alert alert-danger span6">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h2>Current Image Count: <%= @images.count %>
+      </h2>
+      <h3>
+        Must have at least 3 images for this listing. <%= link_to "Add Photo", new_post_image_path(@post), id: "submit_photo", class: "btn-large btn btn-block btn-inverse" %>
+      </h3>
+    </div>
+  </div>
+<% end %>
+<div class="row-fluid">
+  <div class="span3">
+  <p>
+    <strong>Brand:</strong>
+    <%= @post.brand %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @post.size %>
-</p>
+  <p>
+    <strong>Size:</strong>
+    <%= @post.size %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @post.price %>
+  </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+  <p>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </p>
+</div>
+  <div class="span9">
+    <%# render partial: 'images', object: @post.images %>
+  </div>
+</div>
+<%= render 'filepicker' %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<ul class="thumbnails">
+  <%= render partial: 'image', collection: @post.images, locals: {p_id: @post.user_id} %>
+</ul>
+
+

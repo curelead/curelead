@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :require_post_ownership, only: [:edit, :update, :destroy]
 
   def show
+    @images = @post.images
   end
 
   def index
@@ -49,11 +50,5 @@ private
   # Only allow a trusted parameter "white list" through.
   def post_params
     params.require(:post).permit(:brand, :title, :size, :price, :body)
-  end
-
-  def require_post_ownership
-    unless current_user.id == @post.user_id
-      redirect_to new_sessions_path, notice: "You are not authorized"
-    end
   end
 end
