@@ -5,7 +5,7 @@ class CreateSizes < ActiveRecord::Migration
 
       t.timestamps
     end
-    remove_column :posts, :sizes
+    remove_column :posts, :size
     add_column :posts, :size_id, :integer
   end
 end
