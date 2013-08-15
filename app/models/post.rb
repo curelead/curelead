@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   validates :user, presence: true
-  
+
   belongs_to :size
   validates :size, presence: true
   
@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   scope :inactive, -> { where(visible: false).order('created_at DESC') }
 
   def post_title
-    "#{title}, size: #{size} | @ #{price}"
+    "#{title}, size: #{size.name} | @ #{price}"
   end
 
   def status
