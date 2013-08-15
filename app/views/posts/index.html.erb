@@ -20,3 +20,14 @@
     </div>
   <% end %>
 </div>
+
+<% if current_admin %>
+  <div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container">
+        <p class="brand">Admin:</p>
+        <%= link_to "SIZES", sizes_path, class: "brand" %>
+      </div>
+    </div>
+  </div>
+<% end %>

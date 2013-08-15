@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper_method :current_admin
+
   def require_login
     if !logged_in?
       session[:return_to_url] = request.url if request.get?
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::Base
   def current_admin
     begin
       if current_user && admin_user?
-        @current_admin ||= current_user
+        @current_admin = current_user
       end
     rescue
       redirect_to logout_path
@@ -31,7 +33,6 @@ class ApplicationController < ActionController::Base
 
   def require_admin
     unless logged_in? && admin_user?
-      fail
       redirect_to root_path, notice: "Unauthorized Access"
       return
     end
