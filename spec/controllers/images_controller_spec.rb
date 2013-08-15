@@ -31,14 +31,4 @@ describe ImagesController do
       assigns(:image).should eq(image)
     end
   end
-
-  describe "GET new" do
-    it "assigns a new image as @image" do
-      get :new, post_id: post.id
-      assigns(:image).should be_a_new(Image)
-    end
-  end
-
-  describe "POST create" do 
-  end
 end

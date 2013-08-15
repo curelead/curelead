@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813031817) do
+ActiveRecord::Schema.define(version: 20130815025711) do
 
   create_table "images", force: true do |t|
     t.string   "url"
@@ -32,9 +32,16 @@ ActiveRecord::Schema.define(version: 20130813031817) do
     t.text     "body"
     t.boolean  "visible",    default: false
     t.string   "price"
+    t.integer  "size_id"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",                        null: false

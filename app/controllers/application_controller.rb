@@ -16,4 +16,38 @@ class ApplicationController < ActionController::Base
       redirect_to new_sessions_path, notice: "You are not authorized"
     end
   end
+
+  def current_admin
+    begin
+      if current_user && admin_user?
+        @current_admin ||= current_user
+      end
+    rescue
+      redirect_to logout_path
+      return
+    end
+  end
+
+
+  def require_admin
+    unless logged_in? && admin_user?
+      fail
+      redirect_to root_path, notice: "Unauthorized Access"
+      return
+    end
+  end
+
+  def admin_user?
+    current_user == adminj || current_user == adminb
+  end
+
+private
+  def adminj
+    User.where(email: ENV['ADMINJ']).first
+  end
+
+  def adminb
+    User.where(email: ENV['ADMINB']).first
+  end
+
 end
