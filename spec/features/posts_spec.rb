@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'posting' do 
-  before :all do 
-    FactoryGirl.create_list(:size, 5)
-  end
-
   let!(:valid_user) {FactoryGirl.create(:user)}
   let!(:next_valid_user) {FactoryGirl.create(:user)}
 
@@ -64,7 +60,9 @@ describe 'posting' do
   end
 
   describe 'un-authenticated user' do 
-    let(:valid_user) {FactoryGirl.create(:user, :with_post)}
+    let(:post) {FactoryGirl.create(:post)}
+    let(:valid_user) { post.user }
+    
     it 'should not be able to create a post' do 
       visit new_post_path
       expect( page ).to have_content "Login or Create Account"

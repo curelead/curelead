@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe ImagesController do
-  let(:user) { FactoryGirl.create(:user, :with_post_with_image)}
-  let(:post) { user.posts.first }
-  let(:image){ post.images.first }
+  let(:image) { FactoryGirl.create(:image) }
+  let(:post) { image.post }
+  let(:user) { post.user }
   let(:valid_attributes) { {"url" => "mystring"} }
 
   describe "GET index" do

@@ -1,6 +1,7 @@
 class Image < ActiveRecord::Base
-
-  belongs_to :post
+  is_impressionable counter_cache: true
+  
+  belongs_to :post, counter_cache: true
   validates_presence_of :post_id
   validates_presence_of :url
 

@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 # gem 'rails', '4.0.0'
 gem 'rails', github: 'rails/rails'
 gem 'acts_as_votable', '~> 0.6.0' #https://github.com/ryanto/acts_as_votable
+gem 'impressionist'
 
 gem 'simple_form'
 gem 'newrelic_rpm'
@@ -32,6 +33,7 @@ group :test, :development do
   gem 'faker'
   gem 'minitest'
   gem 'pry'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do 
@@ -40,7 +42,6 @@ group :development do
 end
 
 group :test do 
-  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '2.2.0'

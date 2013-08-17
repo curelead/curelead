@@ -2,12 +2,11 @@
 
 FactoryGirl.define do
   factory :post do
-    brand { "NIKE"}
-    title { "Jordans and shit"}
-    body  {  Faker::Lorem.sentences(3) }
-    sequence(:price) { |n| "$#{n*100}" }
-    trait :with_image do 
-      image { [create(:image)] }
-    end
+    brand { "NIKE" }
+    title { "Jordans and shit" }
+    body  {  Faker::Lorem.sentences(3).join }
+    price { "$100" }
+    size
+    user
   end
 end

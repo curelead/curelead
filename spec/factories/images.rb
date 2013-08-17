@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :image do
     url { Faker::Internet.url + ".jpg" }
+    post
   end
 end

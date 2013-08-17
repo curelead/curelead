@@ -2,7 +2,8 @@
 <%= render partial: 'shared/filepicker' %>
 <div class="row-fluid">
   <div class="span3">
-    <p><strong>Score: </strong><%= @post.cached_votes_score %></p>
+    <p><strong>Score: </strong><%= @post.score %></p>
+    <p><strong>Views: </strong><%= @post.view_count %></p>
     <p><strong>Brand: </strong><%= @post.brand %></p>
 
     <p><strong>Title: </strong><%= @post.title %></p>

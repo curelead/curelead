@@ -5,13 +5,11 @@ FactoryGirl.define do
     username { Faker::Internet.user_name(6) }
     email { Faker::Internet.email }
     password 'password'
+  end
 
-    trait :with_post do
-      posts { [create(:post)] }
-    end
-
-    trait :with_post_with_image do 
-      posts { [create(:post, :with_image)]}
-    end
+  factory :admin, class: User do
+    user_name  "blair"
+    email "blair81@gmail.com"
+    password "password"
   end
 end
