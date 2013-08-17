@@ -14,11 +14,13 @@
           <% end %>
         <% end %>
         <%= link_to post, class: "pull-left" do %>
-          <% if post.images.count > 0 %>
-            <%= image_tag post.images.first.url_size(120) , class: 'media-object img-rounded' %>
-          <% else %>
-            <%= image_tag "http://placehold.it/50x50", class: 'media-object img-rounded' %>
-          <% end %>
+          <div class="text-center">
+            <% if post.images.count > 0 %>
+              <%= image_tag post.images.first.url_size(120) , class: 'media-object img-rounded' %>
+            <% else %>
+              <%= image_tag "http://placehold.it/50x50", class: 'media-object img-rounded' %>
+            <% end %>
+          </div>
         <% end %>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to post.post_title, post %></h4>
