@@ -3,7 +3,12 @@ ShoeShop::Application.routes.draw do
   
   resources :posts do 
     resources :images, shallow: true
+    member do 
+      get 'upvote'
+      get 'downvote'
+    end
   end
+  
   resources :users
   get 'profile' => 'users#profile'
     

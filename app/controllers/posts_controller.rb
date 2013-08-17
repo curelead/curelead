@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, except: [:index, :new, :create]
   before_action :require_login, except: [:show, :index]
   before_action :require_post_ownership, only: [:edit, :update, :destroy]
 
@@ -15,10 +15,21 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def upvote
+    @post.liked_by current_user
+    redirect_to :back, notice: "upvote :)"
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to :back, notice: "downvote :("
+  end
+
   def create
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      @post.liked_by current_user
       redirect_to @post, notice: 'Post was successfully created.'
     else
       render action: 'new'

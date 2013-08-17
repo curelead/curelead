@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  acts_as_voter
 
   validates_presence_of :username
   validates_uniqueness_of :username , :case_sensitive => false
