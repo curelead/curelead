@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'User Auth' do 
   username = "blair"
   password = "password"
-  let!(:valid_user) { User.create!(username: username, password: password)}
+  let!(:valid_user) { FactoryGirl.create(:user, username: username, password: password) }
 
   before :each do
     expect(valid_user).to be_valid
