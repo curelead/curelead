@@ -8,8 +8,8 @@ FactoryGirl.define do
   end
 
   factory :admin, class: User do
-    user_name  "blair"
-    email "blair81@gmail.com"
+    user_name  "Admin"
+    email ENV['ADMINB']
     password "password"
   end
 end

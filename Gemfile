@@ -13,10 +13,6 @@ gem 'newrelic_rpm'
 gem 'active_model_serializers'
 gem 'sorcery'
 
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'twitter'
-
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -31,7 +27,7 @@ end
 group :test, :development do 
   gem 'sqlite3'
   gem 'faker'
-  gem 'minitest'
+  gem 'minitest' # There is a bug on edge-rails that requires this
   gem 'pry'
   gem 'factory_girl_rails', '~> 4.0'
 end
@@ -49,5 +45,4 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent'  # guard dependency
-  gem 'pry'
 end

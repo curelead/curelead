@@ -1,5 +1,5 @@
 module ApplicationHelper
   def site_title
-    "SolesOut"
+    "Rails - Reddit - Clone"
   end
 end

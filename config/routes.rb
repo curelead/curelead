@@ -14,10 +14,6 @@ ShoeShop::Application.routes.draw do
     
   resource :sessions, only: [:new, :create, :destroy]
 
-  scope '/admin' do
-    resources :sizes
-  end
-
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 end

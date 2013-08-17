@@ -44,11 +44,11 @@ class ApplicationController < ActionController::Base
 
 private
   def adminj
-    User.where(email: ENV['ADMINJ']).first
+    User.where(email: ENV['ADMIN1']).first
   end
 
   def adminb
-    User.where(email: ENV['ADMINB']).first
+    User.where(email: ENV['ADMIN2']).first
   end
 
 end

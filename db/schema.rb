@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20130817195343) do
     t.text     "body"
     t.boolean  "visible",            default: false
     t.string   "price"
-    t.integer  "size_id"
     t.integer  "cached_votes_total", default: 0
     t.integer  "cached_votes_score", default: 0
     t.integer  "cached_votes_up",    default: 0
@@ -72,12 +71,6 @@ ActiveRecord::Schema.define(version: 20130817195343) do
   add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
   add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-
-  create_table "sizes", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "username",                        null: false

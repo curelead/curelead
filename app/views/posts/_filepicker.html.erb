@@ -1,18 +1,6 @@
 <% if current_user && current_user.id == @post.user_id %>
-  <% if @images.count < 3 %>
-    <div class="row">
-      <div class="alert alert-danger span6">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h2>Current Image Count: <%= @images.count %>
-        </h2>
-        <h3>
-          Must have at least 3 images for this listing. <%= link_to "Add Photo", new_post_image_path(@post), id: "submit_photo", class: "btn-large btn btn-block btn-inverse" %>
-        </h3>
-      </div>
-    </div>
-  <% end %>
-  <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-inverse" %>
-  <%= link_to 'Add Image ', new_post_image_path(@post), class: "btn btn-inverse", id: "submit_photo" %>
+  <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-info" %>
+  <%= link_to 'Add Image ', new_post_image_path(@post), class: "btn btn-info", id: "submit_photo" %>
   <script type="text/javascript">
     console.log('<%= post_images_path(@post) %>');
     $(document).on('click','a#submit_photo', function(e) {
