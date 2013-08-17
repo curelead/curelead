@@ -4,7 +4,7 @@
     <hr>
     <div class="row-fluid">
       <div class="media">
-        <%= content_tag :div, class: "pull-left" do  %>
+        <%= content_tag :div, class: "pull-left text-center" do  %>
           <% if current_user %>
             <%= link_to 'upvote', upvote_post_path(post), class: "label label-inverse" %>
             <h4>[<%= post.score %>]</h4>
@@ -14,7 +14,11 @@
           <% end %>
         <% end %>
         <%= link_to post, class: "pull-left" do %>
-          <%= image_tag "http://placehold.it/50x50", class: 'media-object img-rounded' %>
+          <% if post.images.count > 0 %>
+            <%= image_tag post.images.first.url_size(120) , class: 'media-object img-rounded' %>
+          <% else %>
+            <%= image_tag "http://placehold.it/50x50", class: 'media-object img-rounded' %>
+          <% end %>
         <% end %>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to post.post_title, post %></h4>
