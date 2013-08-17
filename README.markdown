@@ -21,3 +21,71 @@ Things to note:
 - sqlite locally 
 - System dependencies:
   - requires [inkfilepicker.com](https://www.inkfilepicker.com) account 
+
+
+# Contributing
+
+We love pull requests. Here's a quick guide:
+
+1. Fork the repo.
+
+2. Run the tests. We only take pull requests with passing tests, and it's great
+to know that you have a clean slate: `bundle && rake`
+
+3. Add a test for your change. Only refactoring and documentation changes
+require no new tests. If you are adding functionality or fixing a bug, we need
+a test!
+
+4. Make the test pass.
+
+5. Push to your fork and submit a pull request.
+
+
+At this point you're waiting on us. We like to at least comment on, if not
+accept, pull requests within three business days (and, typically, one business
+day). We may suggest some changes or improvements or alternatives.
+
+Some things that will increase the chance that your pull request is accepted,
+taken straight from the Ruby on Rails guide:
+
+* Use Rails idioms and helpers
+* Include tests that fail without your code, and pass with it
+* Update the documentation, the surrounding one, examples elsewhere, guides,
+  whatever is affected by your contribution
+
+Syntax:
+
+* Two spaces, no tabs.
+* No trailing whitespace. Blank lines should not have any space.
+* Prefer &&/|| over and/or.
+* MyClass.my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+* a = b and not a=b.
+* Follow the conventions you see used in the source already.
+
+And in case we didn't emphasize it enough: we love tests!
+
+
+
+# License
+
+The MIT License (MIT)
+
+Copyright (c) 2013 Blair Anderson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
