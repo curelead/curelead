@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   validates_associated :user, :if => :user_id
 
+  validates_presence_of :size
   belongs_to :size
   validates_associated :size, :if => :size_id
 
@@ -20,9 +21,14 @@ class Post < ActiveRecord::Base
   scope :active, -> { where(visible: true).order('created_at DESC') }
   scope :inactive, -> { where(visible: false).order('created_at DESC') }
 
-  
   def post_title
-    "#{title}, size: #{size.name} | @ #{price}"
+    begin
+      "#{title}, size: #{size.name} | @ #{price}"
+    rescue Exception => e
+      self.size = Size.first
+      self.save
+      "#{title}, size: #{size.name} | @ #{price}"
+    end
   end
 
   def status
