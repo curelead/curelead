@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :size do
-    name "MyString"
+    name { Faker::Number.number(1) }
   end
 end

@@ -31,7 +31,6 @@ group :test, :development do
   gem 'sqlite3'
   gem 'faker'
   gem 'minitest'
-  gem 'factory_girl_rails'
   gem 'pry'
 end
 
@@ -41,6 +40,7 @@ group :development do
 end
 
 group :test do 
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '2.2.0'

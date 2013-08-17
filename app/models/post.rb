@@ -2,17 +2,17 @@ class Post < ActiveRecord::Base
   acts_as_votable
   
   belongs_to :user
-  validates :user, presence: true
+  validates :user, presence: true, :if => :user_id 
 
   belongs_to :size
-  validates :size, presence: true
+  validates :size, presence: true, :if => :size_id 
   
   validates :title,   presence: true, length: { maximum: 50 }
   validates :price,   presence: true
   validates :body,    presence: true
   validates :brand,   presence: true
 
-  has_many :images
+  has_many :images, dependent: :destroy
 
   scope :active, -> { where(visible: true).order('created_at DESC') }
   scope :inactive, -> { where(visible: false).order('created_at DESC') }

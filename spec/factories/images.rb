@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :image do
-    url "MyString"
+    url { Faker::Internet.url + ".jpg" }
   end
 end

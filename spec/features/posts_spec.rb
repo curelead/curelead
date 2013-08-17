@@ -1,20 +1,13 @@
 require 'spec_helper'
 
 describe 'posting' do 
-
-  let!(:valid_user) {User.create!(username: 'jonas', password: "password")}
-  let!(:next_valid_user) {User.create!(username: 'blair', password: "password")}
-  
-  def create_post_for_user(user = valid_user)
-    Post.create do |p|
-      p.brand = "NIKE"
-      p.title = "Jordans and shit"
-      p.size  = "12"
-      p.price = "150"
-      p.user_id = user.id
-      p.body  = "These are the slickest jordans around"
-    end
+  before :all do 
+    FactoryGirl.create_list(:size, 5)
   end
+
+  let!(:valid_user) {FactoryGirl.create(:user)}
+  let!(:next_valid_user) {FactoryGirl.create(:user)}
+
 
   def login(user, password = "password")
     visit root_path
@@ -29,7 +22,7 @@ describe 'posting' do
     visit new_post_path
     fill_in 'post_brand', with: "NIKE"
     fill_in 'post_title', with: "Jordans and shit"
-    fill_in 'post_size', with: "12"
+    select('1', :from => 'Size')
     fill_in 'post_price', with: "150"
     fill_in 'post_body', with: "These are the slickest jordans around"
 
@@ -71,9 +64,7 @@ describe 'posting' do
   end
 
   describe 'un-authenticated user' do 
-    before :each do 
-      create_post_for_user(valid_user)
-    end
+    let(:valid_user) {FactoryGirl.create(:user, :with_post)}
     it 'should not be able to create a post' do 
       visit new_post_path
       expect( page ).to have_content "Login or Create Account"

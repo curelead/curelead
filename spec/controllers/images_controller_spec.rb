@@ -1,22 +1,10 @@
 require 'spec_helper'
 
 describe ImagesController do
-  let!(:user) { User.create!(username: "userjhgfd", password: "password")}
+  let(:user) { FactoryGirl.create(:user, :with_post_with_image)}
+  let(:post) { user.posts.first }
+  let(:image){ post.images.first }
   let(:valid_attributes) { {"url" => "mystring"} }
-  let!(:post) do 
-    post = Post.new
-    post.user_id = user.id
-    post.save
-    post
-  end
-
-  let(:image) do 
-    Image.create! do |i|
-      i.post_id = post.id
-      i.url = "http://filepicker.com"
-    end
-  end
-
 
   describe "GET index" do
     it "assigns all images as images" do
