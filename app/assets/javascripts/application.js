@@ -15,5 +15,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-  filepicker.setKey('AoaxmLrr2Tj2EbZv0JS0Mz');
+  filepicker.setKey(ENV['FILE_PICKER_API']);
 });
