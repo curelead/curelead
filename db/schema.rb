@@ -49,9 +49,7 @@ ActiveRecord::Schema.define(version: 20130817195343) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
 
   create_table "posts", force: true do |t|
-    t.string   "brand"
     t.string   "title"
-    t.string   "size"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
