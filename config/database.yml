@@ -20,8 +20,8 @@ test:
 
 production:
 #  adapter: sqlite3
-   adapter: postgresql
+  adapter: postgresql
 #  database: db/production.sqlite3
-   encoding: unicode
+  encoding: unicode
   pool: 5
 #  timeout: 5000
