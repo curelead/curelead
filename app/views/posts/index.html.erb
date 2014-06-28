@@ -22,9 +22,12 @@
           </div>
         <% end %>
         <div class="media-body">
-          <h4 class="media-heading"><%= link_to post.title, post %></h4>
+
+<!--          <h4 class="media-heading"><%= link_to post.title, post %></h4> Original-->
+          <h4 class="media-heading"><%= link_to post.title, post.body %></h4>
           <p>
-            by: <%= link_to "#{post.user.username} (#{0})", user_path(post.user) %>
+<!--            by: <%= link_to "#{post.user.username} (#{0})", user_path(post.user) %> Original-->
+          by: <%= "#{post.user.username} (#{0})" %> 
             | <span class="label label-info">views: <%= post.view_count %></span>
           </p>
         </div>
