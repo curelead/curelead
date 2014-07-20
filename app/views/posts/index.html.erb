@@ -24,7 +24,9 @@
         <div class="media-body">
 
 <!--      Allow link direct:    <h4 class="media-heading"><%= link_to post.title, post %></h4> Original-->
-          <h4 class="media-heading"><%= link_to post.title, post.body %> (<%= link_to "+", post %>)</h4>
+          <h4 class="media-heading">
+            <%= link_to post.title, post.body, :target => "_blank" %> (<%= link_to "+", post %>)
+          </h4>
           <p>
 <!--      Disable Broken Users      by: <%= link_to "#{post.user.username} (#{0})", user_path(post.user) %> Original-->
           by: <%= "#{post.user.username} (#{0})" %> 
