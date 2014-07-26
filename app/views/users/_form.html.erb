@@ -1,6 +1,14 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :username %>
   <%= f.input :email %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :education %>
+  <%= f.input :oneliner %>
+  <%= f.input :description %>
+  <%= f.input :speciality %>
+  <%= f.input :address %>
+  <%= f.input :contact_number %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <%= f.submit "Create", class: "btn btn-info" %>

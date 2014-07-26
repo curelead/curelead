@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817195343) do
+ActiveRecord::Schema.define(version: 20140726073134) do
 
   create_table "images", force: true do |t|
     t.string   "url"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20130817195343) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "username",                        null: false
+    t.string   "username",                                   null: false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
@@ -85,6 +85,14 @@ ActiveRecord::Schema.define(version: 20130817195343) do
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "speciality"
+    t.string   "education"
+    t.string   "address"
+    t.integer  "contact_number"
+    t.text     "description"
+    t.string   "oneliner",                        limit: 50
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token"
